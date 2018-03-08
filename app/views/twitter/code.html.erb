@@ -1,0 +1,83 @@
+<div class="customcard">
+  <h2>ACCESS CODE:</h2>
+  <input type="text" maxlength=6></input><br>
+  <%= link_to twitter_path do %>
+  <button type='button' class="btn btn-primary btn-lg" disabled=true>ENTER</button>
+  <% end %>
+</div>
+
+<style>
+  body {
+    background-color: #fcfcfc;
+  }
+  .customcard {
+    background-color: white;
+    width: 450px;
+    height: 300px;
+    padding: 60px 0;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+    top: 20%;
+  }
+  .customcard > h2 {
+    font-family: 'Lato';
+    font-weight: 200;
+    text-align: center;
+    color: #222;
+    margin-bottom: 20px;
+  }
+  input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 50%;
+  text-align: center;
+  height: 50px;
+  font-size: 30px;
+  letter-spacing: .5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #333;
+  margin-left: -25%;
+  font-family: 'Lato';
+  left: 50%;
+  position: relative;
+  margin-bottom: 35px;
+}
+input:focus, .btn:focus{
+    outline: none;
+}
+.btn {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  margin-left: -25%;
+  border-radius: 0px;
+}
+</style>
+<script>
+  $(document).ready(function(){
+    $('input').on('change keyup paste', function() {
+      var value = $('input').val();
+      if(value.length == 6) {
+        if(value == "BR43JK") {
+          $('.btn').prop('disabled',false)
+          $('input').css('border-bottom', '1px solid #88dba3')
+          $('input').css('color', '#88dba3')
+        }
+        else {
+          $('.btn').prop('disabled',true)
+          $('input').css('border-bottom', '1px solid #f1404b')
+          $('input').css('color', '#f1404b')
+        }
+      }
+      else {
+        $('.btn').prop('disabled',true)
+        $('input').css('border-bottom', '1px solid #ccc')
+        $('input').css('color', '#333')
+      }
+
+    });
+  });
+</script>
